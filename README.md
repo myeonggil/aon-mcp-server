@@ -1,2 +1,9 @@
 # aon-mcp-server
-## https://ai.plainenglish.io/a2a-mcp-langchain-powerful-multi-agent-chatbot-025731a700e9
+
+## server
+1. 스크립트
+2. sse: /sse or streamable-http: /mcp
+
+## client
+1. studio://python 경로
+2. http://host:port/path
