@@ -21,12 +21,12 @@ class MongoDBCluster:
     async def close(self):
         await self.client.close()
 
-    async def get_context_string_from_docs(self, embedded_query: str) -> str:
+    async def get_context_string_from_docs(self, embedded_query: list[float]) -> str:
         context_docs = await self.search_vector(embedded_query=embedded_query)
         context_string = " ".join([doc["text"] for doc in context_docs])
         return context_string
 
-    async def search_vector(self, embedded_query: str):
+    async def search_vector(self, embedded_query: list[float]):
         pipeline = [
             {
                 "$vectorSearch": {

@@ -160,10 +160,18 @@ def get_prompt(context_string: str, query: str) -> str:
     return prompt
 
 
+class Test(BaseModel):
+    res: list[float]
+
 @mcp.tool(description="Embed input query")
-async def process_embedding(query: str) -> str:
-    embedded_query = embed.text([query])
-    return embedded_query['embeddings'][0]
+async def process_embedding(query: str) -> AsyncGenerator:
+    yield '12'
+
+
+# @mcp.tool(description="Embed input query")
+# async def process_embedding(query: str) -> list[float]:
+#     embedded_query = embed.text([query])
+#     return embedded_query['embeddings'][0]
 
 
 @mcp.tool(description="Search vector DB")
